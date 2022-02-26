@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
- const DB = 'mongodb://localhost:27017/sih'
+ const DB = 'mongodb+srv://Charan17:Charan555@cluster0.dezau.mongodb.net/sihbackend?retryWrites=true&w=majority'
 
 mongoose.Promise = global.Promise ;
 
