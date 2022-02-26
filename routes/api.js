@@ -18,8 +18,11 @@ router.post("/crops", async (req, res) => {
     const saved = await user.save();
     if (saved) {
       console.log(`Data saved`);
+      res.status(200).json({"message":"Data saved successfully"});
     } else {
       console.log(`not saved`);
+      res.status(500).json({"message":"Data failed to save"});
+
     }
   } catch (error) {
     console.log(error);
