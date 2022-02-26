@@ -29,6 +29,17 @@ router.post("/crops", async (req, res) => {
   }
 });
 
+router.post("/crops/data" , async (req,res) =>{
+  try {
+    const {id} = req.body;
+    const newData = await User.findOne({id:id});
+   return  res.status(200).json({newData})
+
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 router.post("/user", async (req, res) => {
   try {
     const { id, cropName, description, links } = req.body;
@@ -36,14 +47,17 @@ router.post("/user", async (req, res) => {
     const saved = await data.save();
     if (saved) {
       console.log(`Data saved`);
+      res.status(200).json({"message":"Data saved successfully"});
     } else {
       console.log(`not saved`);
+      res.status(200).json({"message":"Data failed save"});
     }
     console.log(data);
   } catch (error) {
     console.log(error);
   }
 });
+
 
 // django connection
 // const spawn = require("child_process").spawn;
